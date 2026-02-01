@@ -27,7 +27,7 @@ import VoiceAssistant from './components/VoiceAssistant';
 import Support from './components/Support';
 import Profile from './components/Profile';
 import LoginScreen from './components/LoginScreen';
-import { AppMode, Skill, UserStats } from './types';
+import { AppMode, Skill, UserStats, Notification } from './types';
 
 function App() {
   // Auth State
@@ -54,14 +54,50 @@ function App() {
     ],
   });
 
-  const [notification, setNotification] = useState<{ message: string; type: 'points' | 'badge' } | null>(null);
+  const [notifications, setNotifications] = useState<Notification[]>([
+    {
+      id: '1',
+      title: 'Welcome',
+      message: 'Explore your new AI-powered career roadmap.',
+      timestamp: Date.now(),
+      read: false,
+      type: 'system'
+    }
+  ]);
+
+  const [toast, setToast] = useState<{ message: string; type: 'points' | 'badge' } | null>(null);
+
+  const addNotification = (notif: Omit<Notification, 'id' | 'timestamp' | 'read'>) => {
+    const newNotif: Notification = {
+      ...notif,
+      id: Math.random().toString(36).substr(2, 9),
+      timestamp: Date.now(),
+      read: false
+    };
+    setNotifications(prev => [newNotif, ...prev]);
+    setToast({ message: newNotif.message, type: notif.type === 'badge' ? 'badge' : 'points' });
+  };
 
   useEffect(() => {
-    if (notification) {
-      const timer = setTimeout(() => setNotification(null), 3000);
+    if (toast) {
+      const timer = setTimeout(() => setToast(null), 3000);
       return () => clearTimeout(timer);
     }
-  }, [notification]);
+  }, [toast]);
+
+  // Simulate real-time challenge alert
+  useEffect(() => {
+    if (user) {
+      const timer = setTimeout(() => {
+        addNotification({
+          title: 'New Challenge Alert',
+          message: 'A new system design challenge is available!',
+          type: 'challenge'
+        });
+      }, 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [user]);
 
   // ✅ FIXED LOGIN HANDLER
   const handleLogin = (userData: any) => {
@@ -72,9 +108,10 @@ function App() {
     setSidebarOpen(false);
     setVoiceOpen(false);
 
-    setNotification({
+    addNotification({
+      title: 'Login Successful',
       message: `Welcome back, ${userData.name.split(' ')[0]}`,
-      type: 'points',
+      type: 'system'
     });
   };
 
@@ -133,9 +170,17 @@ function App() {
       const newLevel = Math.floor(newPoints / 1000) + 1;
 
       if (newLevel > prev.level) {
-        setNotification({ message: `Level Up! Level ${newLevel}`, type: 'badge' });
+        addNotification({
+          title: 'Level Up!',
+          message: `Level Up! Level ${newLevel}`,
+          type: 'badge'
+        });
       } else {
-        setNotification({ message: `+${amount} XP`, type: 'points' });
+        addNotification({
+          title: 'Points Earned',
+          message: `+${amount} XP`,
+          type: 'points'
+        });
       }
 
       return {
@@ -246,7 +291,13 @@ function App() {
         <main className="flex-1 p-4 md:p-8 overflow-x-hidden relative">
           <div className="max-w-6xl mx-auto h-full">
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-              {mode === AppMode.DASHBOARD && <Dashboard userStats={userStats} />}
+              {mode === AppMode.DASHBOARD && (
+                <Dashboard
+                  userStats={userStats}
+                  notifications={notifications}
+                  setNotifications={setNotifications}
+                />
+              )}
               {mode === AppMode.ASSESSMENT && (
                 <SkillAssessment
                   onSkillsAnalyzed={(res) => setSkills(res)}
@@ -269,17 +320,17 @@ function App() {
           </div>
 
           {/* Sci-Fi Notification Toast */}
-          {notification && (
-            <div className={`fixed bottom-24 md:bottom-8 right-8 px-6 py-4 rounded-lg flex items-center gap-4 z-50 animate-in slide-in-from-right duration-500 border bg-[#0B1121]/90 backdrop-blur-md ${notification.type === 'badge'
+          {toast && (
+            <div className={`fixed bottom-24 md:bottom-8 right-8 px-6 py-4 rounded-lg flex items-center gap-4 z-50 animate-in slide-in-from-right duration-500 border bg-[#0B1121]/90 backdrop-blur-md ${toast.type === 'badge'
               ? 'border-emerald-500/50 text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.3)]'
               : 'border-blue-500/50 text-blue-400 shadow-[0_0_20px_rgba(59,130,246,0.3)]'
               }`}>
-              <div className={`p-2 rounded-md ${notification.type === 'badge' ? 'bg-emerald-500/20' : 'bg-blue-500/20'}`}>
-                {notification.type === 'badge' ? <Trophy className="w-5 h-5" /> : <Zap className="w-5 h-5" />}
+              <div className={`p-2 rounded-md ${toast.type === 'badge' ? 'bg-emerald-500/20' : 'bg-blue-500/20'}`}>
+                {toast.type === 'badge' ? <Trophy className="w-5 h-5" /> : <Zap className="w-5 h-5" />}
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">{notification.type === 'badge' ? 'Achievement' : 'System'}</p>
-                <span className="font-bold text-lg tracking-tight text-white">{notification.message}</span>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">{toast.type === 'badge' ? 'Achievement' : 'System'}</p>
+                <span className="font-bold text-lg tracking-tight text-white">{toast.message}</span>
               </div>
             </div>
           )}

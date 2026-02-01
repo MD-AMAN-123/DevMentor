@@ -60,6 +60,15 @@ export interface UserStats {
   streak: number;
 }
 
+export interface Notification {
+  id: string;
+  title: string;
+  message: string;
+  timestamp: number;
+  read: boolean;
+  type: 'points' | 'badge' | 'system' | 'challenge';
+}
+
 export interface Challenge {
   id: string;
   title: string;
