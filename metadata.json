@@ -1,0 +1,7 @@
+{
+  "name": "DevMentor AI",
+  "description": "An advanced AI-powered learning and productivity copilot for developers. Features skill assessment, personalized roadmaps, code explanation, debugging, and interview prep using Google Gemini.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
