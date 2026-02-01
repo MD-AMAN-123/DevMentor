@@ -10,11 +10,12 @@
   },
   "dependencies": {
     "@google/genai": "^1.37.0",
-    "react-dom": "^19.2.3",
+    "@react-oauth/google": "^0.13.4",
+    "lucide-react": "^0.562.0",
     "react": "^19.2.3",
-    "recharts": "^3.6.0",
+    "react-dom": "^19.2.3",
     "react-markdown": "^10.1.0",
-    "lucide-react": "^0.562.0"
+    "recharts": "^3.6.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
