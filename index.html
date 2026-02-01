@@ -1,80 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevMentor AI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-      
-      :root {
-        --bg-dark: #030712; /* Gray 950 */
-        --card-dark: #0B1121; /* Custom Card BG */
-        --neon-green: #10B981;
-        --neon-blue: #3B82F6;
-        --neon-purple: #8B5CF6;
-      }
 
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--bg-dark);
-        color: #e2e8f0;
-      }
-      
-      /* Subtle grid overlay */
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: 
-          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 30px 30px;
-        pointer-events: none;
-        z-index: -1;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevMentor AI</title>
+  <link rel="shortcut icon" href="Dev.png" type="image/Dev.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-      code, pre {
-        font-family: 'JetBrains Mono', monospace;
-      }
+    :root {
+      --bg-dark: #030712;
+      /* Gray 950 */
+      --card-dark: #0B1121;
+      /* Custom Card BG */
+      --neon-green: #10B981;
+      --neon-blue: #3B82F6;
+      --neon-purple: #8B5CF6;
+    }
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #020617; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1e293b; 
-        border-radius: 3px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #334155; 
-      }
-      
-      /* Glass/Sci-Fi Panel */
-      .sci-card {
-        background: rgba(11, 17, 33, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      }
-      
-      .neon-border-green {
-        box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.3);
-      }
-      
-      .neon-text-glow {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-      }
-    </style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: #e2e8f0;
+    }
+
+    /* Subtle grid overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    code,
+    pre {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    /* Glass/Sci-Fi Panel */
+    .sci-card {
+      background: rgba(11, 17, 33, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .neon-border-green {
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .neon-text-glow {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -88,10 +96,12 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
+
+<body>
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>
