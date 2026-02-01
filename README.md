@@ -5,6 +5,7 @@ DevMentor AI is an intelligent, interactive learning assistant for developers th
 
 Built for modern developers, DevMentor AI combines AI mentoring, skill analytics, guided roadmaps, debugging assistance, and gamification into a single seamless platform.
 
+
 🧠 Problem Statement
 
 Developers often struggle with:
@@ -20,6 +21,7 @@ Debugging efficiently
 Staying motivated and consistent
 
 Existing learning platforms are static, generic, and non-adaptive.
+
 
 💡 Solution
 
@@ -37,6 +39,7 @@ Tracks progress with gamification
 
 Improves developer productivity end-to-end
 
+
 ✨ Key Features
 🔐 Secure Authentication
 
@@ -46,6 +49,7 @@ Protected application flow
 
 Secure session handling
 
+
 📊 Skill Analytics Dashboard
 
 Developer performance insights
@@ -53,6 +57,7 @@ Developer performance insights
 XP, levels, streaks & badges
 
 Real-time progress tracking
+
 
 🧪 AI Skill Assessment
 
@@ -62,6 +67,7 @@ Identifies weak & strong areas
 
 Adaptive recommendations
 
+
 🗺️ Personalized Learning Roadmap
 
 Custom mastery paths
@@ -69,6 +75,7 @@ Custom mastery paths
 Skill-based progression
 
 Goal-oriented learning
+
 
 🧠 Code Insight Lab
 
@@ -78,6 +85,7 @@ Context-aware understanding
 
 Beginner-friendly insights
 
+
 🐞 Debug Console
 
 AI-assisted debugging
@@ -85,6 +93,7 @@ AI-assisted debugging
 Error analysis & suggestions
 
 Faster problem resolution
+
 
 🎯 Challenges & Gamification
 
@@ -94,11 +103,13 @@ XP rewards & leveling system
 
 Global leaderboard
 
+
 🎙️ Voice AI Assistant
 
 Hands-free interaction
 
 Voice-based guidance & help
+
 
 🧑‍💼 Profile & Progress
 
@@ -107,6 +118,7 @@ Personalized user profile
 Skill stats & achievements
 
 Role-based identity
+
 
 🏗️ System Architecture (High Level)
 User
@@ -122,6 +134,7 @@ AI Processing Layer
  └─ Roadmap Generator
  ↓
 State Management & UI Rendering
+
 
 🛠️ Tech Stack
 Frontend
@@ -156,6 +169,7 @@ Vercel
 
 CI/CD enabled
 
+
 🔒 Security Considerations
 
 OAuth-based authentication
@@ -165,6 +179,7 @@ No plaintext credentials
 Defensive UI rendering to prevent runtime crashes
 
 Secure user session handling
+
 
 🎯 Use Cases
 
@@ -178,10 +193,12 @@ Self-taught engineers
 
 Developers preparing for interviews
 
+
 🚀 Deployment
 
 Live Demo:
 👉 https://devmentor-sigma.vercel.app/
+
 
 🧪 How to Run Locally
 # Clone repository
@@ -196,6 +213,7 @@ npm run dev
 
 Ensure Google OAuth Client ID is configured in environment variables.
 
+
 🏆 Hackathon Readiness
 
 ✔ Scalable architecture
@@ -204,6 +222,7 @@ Ensure Google OAuth Client ID is configured in environment variables.
 ✔ Strong UI/UX
 ✔ Secure authentication
 ✔ Clear innovation & impact
+
 
 🔮 Future Enhancements
 
@@ -218,6 +237,7 @@ Team collaboration mode
 Interview preparation module
 
 Real-time coding assistant
+
 
 👨‍💻 Team
 
